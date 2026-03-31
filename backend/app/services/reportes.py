@@ -14,10 +14,16 @@ def crear_reporte(db: Session, datos: ReporteCreate) -> Reporte:
     return reporte
 
 
-def listar_reportes(db: Session, resuelto: bool | None = None) -> list[Reporte]:
+def listar_reportes(
+    db: Session,
+    resuelto: bool | None = None,
+    espacio_id: int | None = None,
+) -> list[Reporte]:
     q = db.query(Reporte)
     if resuelto is not None:
         q = q.filter(Reporte.resuelto == resuelto)
+    if espacio_id is not None:
+        q = q.filter(Reporte.espacio_id == espacio_id)
     return q.order_by(Reporte.creado_en.desc()).all()
 
 

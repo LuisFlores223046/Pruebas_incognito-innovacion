@@ -16,6 +16,13 @@ cloudinary.config(
 
 
 def subir_foto(db: Session, file: UploadFile, datos: FotoCreate) -> FotoEspacio:
+    from app.models.espacio import Espacio
+    if not db.query(Espacio).filter(Espacio.id == datos.espacio_id).first():
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Espacio no encontrado",
+        )
+
     try:
         resultado = cloudinary.uploader.upload(
             file.file,
