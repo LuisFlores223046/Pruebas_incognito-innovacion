@@ -1,0 +1,166 @@
+{
+  "GET /api/v1/espacios": [
+    {
+      "id": 1,
+      "codigo": "ICB-A101",
+      "nombre": "Aula 101 — ICB",
+      "categoria_id": 1,
+      "piso_id": 2,
+      "latitud": 31.722,
+      "longitud": -106.4259,
+      "activo": true,
+      "notas": "Aula principal con proyector y 40 lugares",
+      "creado_en": "2026-03-30T10:00:00Z",
+      "actualizado_en": null,
+      "categoria": {
+        "id": 1,
+        "nombre": "Aula",
+        "icono": "🏫",
+        "color_hex": "#4A90D9"
+      }
+    },
+    {
+      "id": 2,
+      "codigo": "ICB-LAB01",
+      "nombre": "Laboratorio de Biología",
+      "categoria_id": 2,
+      "piso_id": 1,
+      "latitud": 31.7218,
+      "longitud": -106.4257,
+      "activo": true,
+      "notas": "Laboratorio de prácticas de biología celular y molecular",
+      "creado_en": "2026-03-30T10:00:00Z",
+      "actualizado_en": null,
+      "categoria": {
+        "id": 2,
+        "nombre": "Laboratorio",
+        "icono": "🔬",
+        "color_hex": "#7B2D8B"
+      }
+    },
+    {
+      "id": 3,
+      "codigo": "BICU-01",
+      "nombre": "Biblioteca Central UACJ",
+      "categoria_id": 3,
+      "piso_id": 13,
+      "latitud": 31.7223,
+      "longitud": -106.4263,
+      "activo": true,
+      "notas": "Acervo de más de 50 000 volúmenes y acceso a bases de datos digitales",
+      "creado_en": "2026-03-30T10:00:00Z",
+      "actualizado_en": null,
+      "categoria": {
+        "id": 3,
+        "nombre": "Biblioteca",
+        "icono": "📚",
+        "color_hex": "#2E7D32"
+      }
+    }
+  ],
+  "GET /api/v1/espacios/{id}": {
+    "id": 3,
+    "codigo": "BICU-01",
+    "nombre": "Biblioteca Central UACJ",
+    "categoria_id": 3,
+    "piso_id": 13,
+    "latitud": 31.7223,
+    "longitud": -106.4263,
+    "activo": true,
+    "notas": "Acervo de más de 50 000 volúmenes y acceso a bases de datos digitales",
+    "creado_en": "2026-03-30T10:00:00Z",
+    "actualizado_en": null,
+    "categoria": {
+      "id": 3,
+      "nombre": "Biblioteca",
+      "icono": "📚",
+      "color_hex": "#2E7D32"
+    },
+    "horarios": [
+      { "id": 11, "espacio_id": 3, "dia_semana": 0, "hora_apertura": "08:00:00", "hora_cierre": "20:00:00" },
+      { "id": 12, "espacio_id": 3, "dia_semana": 1, "hora_apertura": "08:00:00", "hora_cierre": "20:00:00" },
+      { "id": 13, "espacio_id": 3, "dia_semana": 2, "hora_apertura": "08:00:00", "hora_cierre": "20:00:00" },
+      { "id": 14, "espacio_id": 3, "dia_semana": 3, "hora_apertura": "08:00:00", "hora_cierre": "20:00:00" },
+      { "id": 15, "espacio_id": 3, "dia_semana": 4, "hora_apertura": "08:00:00", "hora_cierre": "20:00:00" },
+      { "id": 16, "espacio_id": 3, "dia_semana": 5, "hora_apertura": "09:00:00", "hora_cierre": "15:00:00" }
+    ],
+    "contactos": [
+      { "id": 1, "espacio_id": 3, "tipo": "telefono", "valor": "+52 656 688 4800" },
+      { "id": 2, "espacio_id": 3, "tipo": "correo", "valor": "biblioteca@uacj.mx" },
+      { "id": 3, "espacio_id": 3, "tipo": "extension", "valor": "2100" }
+    ],
+    "servicios": [
+      { "id": 5, "espacio_id": 3, "descripcion": "Wi-Fi" },
+      { "id": 6, "espacio_id": 3, "descripcion": "Préstamo de laptops" },
+      { "id": 7, "espacio_id": 3, "descripcion": "Sala de estudio grupal" },
+      { "id": 8, "espacio_id": 3, "descripcion": "Impresión" }
+    ],
+    "fotos": [
+      {
+        "id": 3,
+        "espacio_id": 3,
+        "url": "https://placehold.co/800x600?text=BICU-01",
+        "descripcion": "Imagen de referencia",
+        "es_principal": true,
+        "orden": 0,
+        "subida_en": "2026-03-30T10:00:00Z"
+      }
+    ],
+    "eventos": [
+      {
+        "id": 3,
+        "espacio_id": null,
+        "titulo": "Feria de Empleo UACJ 2026",
+        "descripcion": "Más de 50 empresas participantes. Trae tu CV.",
+        "fecha_inicio": "2026-04-14T09:00:00Z",
+        "fecha_fin": "2026-04-14T18:00:00Z",
+        "tipo": "administrativo",
+        "foto_url": null,
+        "url_registro": null,
+        "activo": true,
+        "creado_en": "2026-03-30T10:00:00Z"
+      }
+    ]
+  },
+  "GET /api/v1/eventos": [
+    {
+      "id": 1,
+      "espacio_id": 6,
+      "titulo": "Semana de Ingeniería 2026",
+      "descripcion": "Conferencias, talleres y exposiciones del área de ingeniería.",
+      "fecha_inicio": "2026-04-04T08:00:00Z",
+      "fecha_fin": "2026-04-06T20:00:00Z",
+      "tipo": "academico",
+      "foto_url": null,
+      "url_registro": null,
+      "activo": true,
+      "creado_en": "2026-03-30T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "espacio_id": 9,
+      "titulo": "Torneo Interfacultades de Fútbol",
+      "descripcion": "Torneo semestral entre facultades. Inscripciones abiertas.",
+      "fecha_inicio": "2026-04-09T09:00:00Z",
+      "fecha_fin": "2026-04-11T18:00:00Z",
+      "tipo": "deportivo",
+      "foto_url": null,
+      "url_registro": null,
+      "activo": true,
+      "creado_en": "2026-03-30T10:00:00Z"
+    },
+    {
+      "id": 3,
+      "espacio_id": null,
+      "titulo": "Feria de Empleo UACJ 2026",
+      "descripcion": "Más de 50 empresas participantes. Trae tu CV.",
+      "fecha_inicio": "2026-04-14T09:00:00Z",
+      "fecha_fin": "2026-04-14T18:00:00Z",
+      "tipo": "administrativo",
+      "foto_url": null,
+      "url_registro": null,
+      "activo": true,
+      "creado_en": "2026-03-30T10:00:00Z"
+    }
+  ]
+}
