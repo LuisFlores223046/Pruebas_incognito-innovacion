@@ -7,6 +7,7 @@ from app.models.contacto import Contacto
 from app.models.servicio_espacio import ServicioEspacio
 from app.models.foto_espacio import FotoEspacio
 from app.models.evento import Evento
+from app.models.reporte import Reporte
 from app.models.administrador import Administrador
 
 __all__ = [
@@ -19,5 +20,6 @@ __all__ = [
     "ServicioEspacio",
     "FotoEspacio",
     "Evento",
+    "Reporte",
     "Administrador",
 ]

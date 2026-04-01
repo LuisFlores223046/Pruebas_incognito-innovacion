@@ -29,3 +29,4 @@ class Espacio(Base):
     servicios = relationship("ServicioEspacio", back_populates="espacio", cascade="all, delete-orphan")
     fotos = relationship("FotoEspacio", back_populates="espacio", cascade="all, delete-orphan")
     eventos = relationship("Evento", back_populates="espacio")
+    reportes = relationship("Reporte", back_populates="espacio")

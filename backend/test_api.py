@@ -136,7 +136,20 @@ if "espacio_id" in ids:
 
 # ══════════════════════════════════════════════════════════════
 print(SEP)
-print("11. AUTENTICACIÓN — login")
+print("11. REPORTES — crear (ruta pública)")
+print(SEP)
+resp = r(requests.post(f"{BASE}/reportes", json={
+    "espacio_id": ids.get("espacio_id", 1),
+    "tipo": "sucio",
+    "descripcion": "Prueba de reporte desde script",
+}, headers=HEADERS))
+if resp.ok:
+    ids["reporte_id"] = resp.json()["id"]
+
+
+# ══════════════════════════════════════════════════════════════
+print(SEP)
+print("12. AUTENTICACIÓN — login")
 print(SEP)
 resp = r(requests.post(f"{BASE}/auth/login", json={
     "username": "admin",
@@ -377,6 +390,19 @@ if TOKEN:
         icon = OK if resp.status_code == 204 else FAIL
         print(f"{icon} {resp.status_code}  DELETE /eventos/{ids['nuevo_evento_id']}")
         print()
+
+
+# ══════════════════════════════════════════════════════════════
+print(SEP)
+print("22. REPORTES — listar y resolver (protegido)")
+print(SEP)
+if TOKEN:
+    print("22a. Listar reportes pendientes")
+    r(requests.get(f"{BASE}/reportes", params={"resuelto": "false"}, headers=auth_headers()))
+
+    print("22b. Resolver reporte")
+    if "reporte_id" in ids:
+        r(requests.patch(f"{BASE}/reportes/{ids['reporte_id']}/resolver", headers=auth_headers()))
 
 
 # ══════════════════════════════════════════════════════════════

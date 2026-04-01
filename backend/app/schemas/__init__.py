@@ -7,6 +7,7 @@ from app.schemas.contacto import ContactoOut, ContactoCreate
 from app.schemas.servicio_espacio import ServicioOut, ServicioCreate
 from app.schemas.foto_espacio import FotoOut, FotoCreate, FotoUpdate
 from app.schemas.evento import EventoOut, EventoCreate, EventoUpdate
+from app.schemas.reporte import ReporteOut, ReporteCreate
 from app.schemas.administrador import AdminOut, AdminCreate, TokenOut, LoginIn
 
 __all__ = [
@@ -19,5 +20,6 @@ __all__ = [
     "ServicioOut", "ServicioCreate",
     "FotoOut", "FotoCreate", "FotoUpdate",
     "EventoOut", "EventoCreate", "EventoUpdate",
+    "ReporteOut", "ReporteCreate",
     "AdminOut", "AdminCreate", "TokenOut", "LoginIn",
 ]

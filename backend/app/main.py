@@ -10,6 +10,7 @@ from app.routers import (
     servicios,
     fotos,
     eventos,
+    reportes,
     auth,
 )
 
@@ -50,6 +51,7 @@ app.include_router(contactos.router, prefix=PREFIX)
 app.include_router(servicios.router, prefix=PREFIX)
 app.include_router(fotos.router, prefix=PREFIX)
 app.include_router(eventos.router, prefix=PREFIX)
+app.include_router(reportes.router, prefix=PREFIX)
 
 
 @app.get("/", tags=["Salud"])
