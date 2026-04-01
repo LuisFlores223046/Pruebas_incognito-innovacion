@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \":*)",
+      "Bash(python3 -c \"f=open\\(r''C:/Users/LuisF/Desktop/Pruebas_incognito-innovacion/backend/.env'',''rb''\\); d=f.read\\(\\); f.close\\(\\); print\\(d.hex\\(\\)\\); print\\(len\\(d\\)\\)\")",
+      "Bash(python3 -c \":*)",
+      "Bash(gh --version)",
+      "Bash(pip show:*)",
+      "Bash(pip install:*)",
+      "Bash(python -c \"from pypdf import PdfReader; r=PdfReader\\(r''D:/Downloads/Documents/SRS Mapa CU_15.pdf''\\); print\\(''Paginas:'', len\\(r.pages\\)\\); [print\\(f''=== PAG {i+1} ===\\\\n'', r.pages[i].extract_text\\(\\)\\) for i in range\\(min\\(5,len\\(r.pages\\)\\)\\)]\")",
+      "Bash(python /tmp/read_pdf.py)",
+      "Read(//c/Users/LuisF/**)",
+      "Bash(python3 /c/Users/LuisF/read_excel.py)",
+      "Bash(python3 /c/Users/LuisF/read_excel2.py)",
+      "Bash(python3 /c/Users/LuisF/read_excel3.py)",
+      "Bash(python3 /c/Users/LuisF/read_excel4.py)",
+      "Bash(python3 /c/Users/LuisF/read_each_sheet.py)"
+    ]
+  }
+}

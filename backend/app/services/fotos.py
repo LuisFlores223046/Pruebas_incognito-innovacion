@@ -1,9 +1,11 @@
 """Lógica de subida / eliminación de fotos en Cloudinary."""
+import re
 import cloudinary
 import cloudinary.uploader
 from fastapi import HTTPException, UploadFile, status
 from sqlalchemy.orm import Session
 from app.config import settings
+from app.models.espacio import Espacio
 from app.models.foto_espacio import FotoEspacio
 from app.schemas.foto_espacio import FotoCreate, FotoUpdate
 
@@ -15,12 +17,26 @@ cloudinary.config(
 )
 
 
+def _public_id(espacio_codigo: str, orden: int) -> str:
+    """Genera un public_id legible: mapacu/espacios/A-106_foto_1"""
+    slug = re.sub(r"[^A-Za-z0-9\-]", "_", espacio_codigo)
+    return f"mapacu/espacios/{slug}_foto_{orden}"
+
+
 def subir_foto(db: Session, file: UploadFile, datos: FotoCreate) -> FotoEspacio:
+    espacio = db.query(Espacio).filter(Espacio.id == datos.espacio_id).first()
+    if not espacio:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Espacio no encontrado")
+
+    public_id = _public_id(espacio.codigo, datos.orden)
+
     try:
         resultado = cloudinary.uploader.upload(
             file.file,
-            folder="mapacu/espacios",
+            public_id=public_id,
+            folder=None,
             resource_type="image",
+            overwrite=True,
         )
     except Exception as exc:
         raise HTTPException(
