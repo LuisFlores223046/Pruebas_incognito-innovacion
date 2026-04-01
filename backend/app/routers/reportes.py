@@ -19,11 +19,10 @@ def crear(datos: ReporteCreate, db: Session = Depends(get_db)):
 @router.get("", response_model=list[ReporteOut])
 def listar(
     resuelto: bool | None = None,
-    espacio_id: int | None = None,
     db: Session = Depends(get_db),
     _: Administrador = Depends(get_current_admin),
 ):
-    return listar_reportes(db, resuelto=resuelto, espacio_id=espacio_id)
+    return listar_reportes(db, resuelto=resuelto)
 
 
 @router.patch("/{reporte_id}/resolver", response_model=ReporteOut)
